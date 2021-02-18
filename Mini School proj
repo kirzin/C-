@@ -1,0 +1,164 @@
+#include <iostream>
+using namespace std;
+void bubble();
+void insertion();
+void selection();
+
+int aray[5];
+char opt;
+
+int main()
+{
+	do{
+	system("cls");
+	cout<<"Enter 5 Element\n";
+	cout<<"Element 1:";
+	cin>>aray[0];
+	cout<<"Element 2:";
+	cin>>aray[1];
+	cout<<"Element 3:";
+	cin>>aray[2];
+	cout<<"Element 4:";
+	cin>>aray[3];
+	cout<<"Element 5:";
+	cin>>aray[4];
+	cout<<"Choose Sorting\n";
+	cout<<"[b]Type for Bubble Sorting\n";
+	cout<<"[s]Type for Selection Sorting\n";
+	cout<<"[i]Type for Insertion Sorting\n";
+	cout<<"[x]Type to terminate program\n";
+	cin>>opt;
+	
+	if(opt=='b'){
+		bubble();
+		}
+		
+		if(opt=='s'){
+		selection();
+		}
+		
+		if(opt=='i'){
+		insertion();
+		}
+		
+		if(opt=='x'){
+		 system("cls");
+		 cout<<"GoodBye Cruel World";
+		}
+		cout<<"\ntry again[y/n]";
+		cin>>opt;
+		
+	}while(opt=='y');
+return 0;
+}
+
+
+void bubble()
+{
+	//bubble
+	int i, j, temp, pass = 0;
+	
+	cout << "Input list...\n";
+	for (i = 0; i < 5; i++)
+	{
+		cout << aray[i] << "\t ";
+	}
+	cout << endl;
+	for (i = 0; i < 5; i++)
+	{
+		for (j = i + 1; j < 5; j++)
+		{
+			if (aray[j] < aray[i])
+			{
+				temp = aray[i];
+				aray[i] = aray[j];
+				aray[j] = temp;
+			}
+		}
+		pass++;
+	}
+	cout << "Sorted Element List...\n";
+	for (i = 0; i < 5; i++)
+	{
+		cout << aray[i] << "\t ";
+	}
+	cout << "\nNumber of passes taken to sort the list:" << pass << endl;
+	
+}
+
+
+void insertion()
+{
+	//insertion
+	cout<<"\nInput list is \n";
+	for(int i=0;i<5;i++)
+	{
+		cout<<aray[i]<<"\t";
+	
+	}
+	for(int k=1;k<5;k++)
+	{
+		int temp=aray[k];
+		int j=k-1;
+		while(j>=0&&temp<=aray[j])
+		{
+			aray[j+1]=aray[j];
+			j=j-1;
+		}
+		aray [j+1]=temp;
+	}
+	cout <<"\nSorted list is \n";
+	for(int i=0;i<5;i++)
+	{
+		cout<<aray[i]<<"\t";
+	}
+}
+
+
+void swap(int *a, int *b)
+{
+	int temp=*a;
+	*a=*b;
+	*b=temp;
+}
+void printArray(int array[],int size)
+{
+	for(int i=0;i<size;i++)
+	{
+		cout<<array[i]<<"";
+	}
+cout<<endl;
+}
+void selectionSort(int array[], int size)
+{
+	for(int step=0; step<size-1;step++)
+	{
+		int min_idx=step;
+		for(int i=step+1;i<size;i++)
+		{
+			if(array[i]<array[min_idx])
+			min_idx=i;
+		}
+		swap(&array[min_idx],&array[step]);
+	}
+}
+void selection()
+{
+	
+	int size=sizeof(aray)/sizeof(aray[0]);
+		cout<<"\nInput list is \n";
+	for(int i=0;i<5;i++)
+	{
+		cout<<aray[i]<<"\t";
+	
+	}
+	selectionSort(aray,size);
+	cout<<"Sorted array in Acsending Order:\n";
+		cout<<"\nInput list is \n";
+	for(int size=0;size<5;size++)
+	{
+		cout<<aray[size]<<"\t";
+	
+	}
+
+}
