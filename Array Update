@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+		int LA[5];
+		int item,k,n=5;
+ 	int i,j;
+ 	cout<<"Enter array elements : "<<endl; 
+	for(i=0; i<n; i++) 	{ 
+	cout<<"LA["<<i<<"]:";
+        cin>>LA[i]; 
+	} 
+ 	cout<<"THE ORIGINAL ARRAY ELEMENTS ARE:\n";
+ 	for(i=0;i<n;i++){
+		cout<<"LA["<<i<<"]="<<LA[i]<<endl;
+ 	}
+ 	cout<<"INSERT ELEMENT:";
+ 	cin>>item;
+ 	cout<<"UPDATE INTO POSITION:";
+ 	cin>>k;
+		LA[k-1]=item;
+	cout<<"THE ARRAY ELEMENTS AFTER UPDATION:\n";
+	
+		for(i=0;i<n;i++){
+		cout<<"LA["<<i<<"]="<<LA[i]<<endl;
+ 	}
+					
+//end
+return 0;		
+}
